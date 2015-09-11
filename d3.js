@@ -1,24 +1,20 @@
-// mongoimport -h localhost:3001 --db meteor --drop --collection alpha --type csv --file public/data.csv --headerline
-
-
 Alpha = new Meteor.Collection("alpha");
 
 if (Meteor.isClient) {
 
   Meteor.subscribe('donnee')
 
-myfunction = function(e) {
-  obj = Alpha.findOne({letter: e.id});
-  var l = document.getElementById("l");
-  l.innerHTML = e.id;
-  var f = document.getElementById("f");
-  f.innerHTML = obj.frequency;
-}
+    myfunction = function(e) {
+        obj = Alpha.findOne({letter: e.id});
+        var l = document.getElementById("l");
+        l.innerHTML = e.id;
+        var f = document.getElementById("f");
+        f.innerHTML = obj.frequency;
+    }
 
   Template.d3.onRendered(function(){
 
     var self = this;
-
     self.autorun(function() {
       var elem = document.getElementById("one");
       if (elem)
@@ -43,7 +39,7 @@ myfunction = function(e) {
               .orient("left")
               .ticks(10, "%");
 
-          var svg = d3.select("body").append("svg")
+          var svg = d3.select(".chart").append("svg")
               .attr("width", width + margin.left + margin.right)
               .attr("height", height + margin.top + margin.bottom)
               .attr("id", "one")
