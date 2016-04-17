@@ -1,4 +1,4 @@
-# d3
+# meteor d3
 
 ###
 Implementing d3.js (http://bl.ocks.org/mbostock/3885304) BarChart in a Meteor context
